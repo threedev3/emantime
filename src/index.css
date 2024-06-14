@@ -1,0 +1,40 @@
+@import url("./assets/font/fonts.css");
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/src/assets/font/Poppins-Regular.ttf");
+}
+
+* {
+  font-family: "Poppins";
+}
+
+.bg-multiple {
+  background-image: url("/src/assets/img/bannerimg.png"),
+    url("/src/assets/img/backimg.png");
+  background-position: center center, center center;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5rem;
+}
+
+.transition-transform {
+  transition: transform 0.5s ease-in-out;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
