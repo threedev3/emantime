@@ -7,11 +7,16 @@ import Courses from './pages/Courses/Courses'
 import PricingPage from './pages/Pricing/PricingPage'
 import Contact from './pages/Contact/Contact'
 import CopyRight from './components/copyright/CopyRight'
+import TrialPopup from './components/TrialPopup/TrialPopup'
+import { useState } from 'react'
 
 function App() {
 
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <Router>
+      <TrialPopup openModal={openModal} setOpenModal={setOpenModal} />
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

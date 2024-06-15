@@ -13,6 +13,7 @@ import Reviews from '../../components/Reviews/Reviews.jsx'
 import PricingTop from '../../components/pricing/PricingTop.jsx'
 import WhatsappIcon from '../../components/WhatsappIcon/WhatsappIcon.jsx'
 import CarouselComp from '../../components/carousel/CarouselComp.jsx'
+import ChatIcon from '../../components/chatIcon/ChatIcon.jsx'
 
 function Home() {
   return (
@@ -31,6 +32,7 @@ function Home() {
       {/* <ContactForm /> */}
       <LearnQuran />
       <WhatsappIcon />
+      <ChatIcon />
     </div>
   )
 }

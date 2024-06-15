@@ -3,8 +3,8 @@ import bannerMain from "../../assets/img/bannermain.png";
 import TrialModal from "../trialModal/TrialModal";
 
 function Banner() {
-
   const [openModal, setOpenModal] = useState(false);
+  const [enrollFor, setEnrollFor] = useState("myself");
 
   return (
     <div className="bg-white relative max-w-full">
@@ -73,14 +73,55 @@ function Banner() {
                   </ul>
                 </div>
 
-                <div className="mt-4" onClick={() => setOpenModal(true)}>
+                {/* <div className="mt-4" onClick={() => setOpenModal(true)}>
                   <button className="p-2 sm:px-6 px-4 bg-bannerText text-black font-medium rounded-full sm:text-lg text-base mt-3">
                     Book Free Trial Class
                   </button>
+                </div> */}
+
+                <div className="flex items-center bg-white sm:w-fit w-full mt-4 rounded-lg shadow-md space-x-2">
+                  <div className="flex items-center sm:py-0 py-4 sm:px-4 px-2">
+                    <div>
+                      <span className="text-gray-700 mr-2 sm:text-base text-sm">
+                        I Want To Enroll For?
+                      </span>
+                      <span className="border-r border-gray-300 h-6 mr-2"></span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <label className="flex items-center space-x-1">
+                        <input
+                          type="radio"
+                          name="enroll"
+                          value="myself"
+                          checked={enrollFor === "myself"}
+                          onChange={() => setEnrollFor("myself")}
+                          className="text-green-500 focus:ring-green-500"
+                        />
+                        <span className="sm:text-base text-sm">My Self</span>
+                      </label>
+                      <label className="flex items-center space-x-1">
+                        <input
+                          type="radio"
+                          name="enroll"
+                          value="mychild"
+                          checked={enrollFor === "mychild"}
+                          onChange={() => setEnrollFor("mychild")}
+                          className="text-green-500 focus:ring-green-500"
+                        />
+                        <span className="sm:text-base text-sm">My Child</span>
+                      </label>
+                    </div>
+                  </div>
+                  <button className="sm:block hidden ml-auto bg-pricingActive text-white py-3 px-4 rounded-r-md hover:bg-green-600">
+                    Start Now
+                  </button>
+                </div>
+                <div className="sm:hidden mt-4 p-4 bg-pricingActive rounded-md flex justify-center text-white text-lg">
+                  <button className="">Start Now</button>
                 </div>
               </div>
             </div>
-            
+
             <div className="relative max-w-3xl h-full lg:mt-8 md:max-w-full md:flex md:justify-center ">
               <img
                 className=" top-0 h-auto rounded-md "
@@ -92,9 +133,9 @@ function Banner() {
         </div>
       </div>
 
-      {
-          openModal ? <TrialModal openModal={openModal} setOpenModal={setOpenModal} /> : null
-        }
+      {openModal ? (
+        <TrialModal openModal={openModal} setOpenModal={setOpenModal} />
+      ) : null}
     </div>
   );
 }
