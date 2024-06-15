@@ -12,6 +12,7 @@ import LearnQuran from '../../components/LearnQuran/LearnQuran.jsx'
 import Reviews from '../../components/Reviews/Reviews.jsx'
 import PricingTop from '../../components/pricing/PricingTop.jsx'
 import WhatsappIcon from '../../components/WhatsappIcon/WhatsappIcon.jsx'
+import CarouselComp from '../../components/carousel/CarouselComp.jsx'
 
 function Home() {
   return (
@@ -20,14 +21,14 @@ function Home() {
       <Banner />
       <Choose />
       <Mission />
-      <Carousel />
+      <CarouselComp />
       <Features />
       <ExtraFeatures cardbg="bg-cardbg" />
       <PricingTop title="Our Premium Services At Affordable Pricing" />
       <Pricing />
-      {/* <Reviews /> */}
+      <Reviews />
       <FreeTrial />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <LearnQuran />
       <WhatsappIcon />
     </div>

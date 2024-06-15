@@ -1,7 +1,10 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useRef, useState } from "react";
 import bannerMain from "../../assets/img/bannermain.png";
 import CourseCard from "../coursecard/CourseCard";
 import TrialModal from "../trialModal/TrialModal";
+import Slider from "react-slick";
 
 const courses = [
   {
@@ -43,40 +46,48 @@ const courses = [
 ];
 
 function Carousel() {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const scrollContainerRef = useRef(null);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
+  // const [currentIndex, setCurrentIndex] = useState(1);
+  // const scrollContainerRef = useRef(null);
   const [openModal, setOpenModal] = useState(false);
-  const cardRef = useRef(null);
+  // const cardRef = useRef(null);
 
-  const scrollLeft = () => {
-    console.log(currentIndex);
-    const newIndex = currentIndex === 1 ? courses.length - 2 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    scrollToIndex(newIndex);
-  };
+  // const scrollLeft = () => {
+  //   console.log(currentIndex);
+  //   const newIndex = currentIndex === 1 ? courses.length - 2 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  //   scrollToIndex(newIndex);
+  // };
 
-  const scrollRight = () => {
-    console.log("length", courses.length);
-    console.log(currentIndex);
-    const newIndex = currentIndex === courses.length -2 ? 1 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    scrollToIndex(newIndex);
-  };
+  // const scrollRight = () => {
+  //   console.log("length", courses.length);
+  //   console.log(currentIndex);
+  //   const newIndex = currentIndex === courses.length - 2 ? 1 : currentIndex + 1;
+  //   setCurrentIndex(newIndex);
+  //   scrollToIndex(newIndex);
+  // };
 
-  const scrollToIndex = (index) => {
-    if (scrollContainerRef.current && cardRef.current) {
-      const cardWidth = cardRef.current.clientWidth + 16;
-      const scrollAmount = (index - 1) * cardWidth;
-      scrollContainerRef.current.scrollTo({
-        left: scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
+  // const scrollToIndex = (index) => {
+  //   if (scrollContainerRef.current && cardRef.current) {
+  //     const cardWidth = cardRef.current.clientWidth + 16;
+  //     const scrollAmount = (index - 1) * cardWidth;
+  //     scrollContainerRef.current.scrollTo({
+  //       left: scrollAmount,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
 
-  useEffect(() => {
-    scrollToIndex(currentIndex);
-  }, []);
+  // useEffect(() => {
+  //   scrollToIndex(currentIndex);
+  // }, []);
 
   // const handleDotClick = (index) => {
   //   const newIndex = index + 1;
@@ -107,9 +118,9 @@ function Carousel() {
                 </div>
               </div>
             </div>
-            <div className="max-w-4xl flex flex-col justify-between item-center gap-4">
+            <div className="flex flex-col justify-between item-center gap-4">
               <div className="relative max-h-min h-auto lg:mt-8 flex flex-row justify-between items-center gap-4">
-                <div onClick={scrollLeft}>
+                {/* <div onClick={scrollLeft}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -126,11 +137,15 @@ function Carousel() {
                   </svg>
                 </div>
                 <div
-                  className="overflow-x-scroll flex gap-4 no-scrollbar "
+                  className="overflow-x-scroll flex gap-4 no-scrollbar min-w-full"
                   ref={scrollContainerRef}
                 >
                   {courses.map((item, index) => (
-                    <div ref={index === 0 ? cardRef : null} key={item.id} className="min-w-2xl">
+                    <div
+                      ref={index === 0 ? cardRef : null}
+                      key={item.id}
+                      className="lg:min-w-xl min-w-full"
+                    >
                       <CourseCard
                         title={item.title}
                         description={item.description}
@@ -153,6 +168,38 @@ function Carousel() {
                       d="m8.25 4.5 7.5 7.5-7.5 7.5"
                     />
                   </svg>
+                </div> */}
+
+                <div className="slider-container">
+                  <Slider {...settings}>
+                    <div>
+                      <h3>1</h3>
+                    </div>
+                    <div>
+                      <h3>2</h3>
+                    </div>
+                    <div>
+                      <h3>3</h3>
+                    </div>
+                    <div>
+                      <h3>4</h3>
+                    </div>
+                    <div>
+                      <h3>5</h3>
+                    </div>
+                    <div>
+                      <h3>6</h3>
+                    </div>
+                    <div>
+                      <h3>7</h3>
+                    </div>
+                    <div>
+                      <h3>8</h3>
+                    </div>
+                    <div>
+                      <h3>9</h3>
+                    </div>
+                  </Slider>
                 </div>
               </div>
               {/* <div className="flex justify-center mt-4 gap-3">

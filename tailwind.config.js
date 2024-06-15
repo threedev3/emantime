@@ -40,7 +40,10 @@ export default {
         '16': '4rem',
       },
       backgroundPosition: {
-        'moveup' : '0 -58px'
+        'moveup' : '0 220px',
+        'movedown' : '0px 280px',
+        'movedownagain': '0px 460px',
+        'movedownmobile': '0px 550px'
       }
     },
   },

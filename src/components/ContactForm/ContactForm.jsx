@@ -3,9 +3,9 @@ import sideContact from "../../assets/img/sidecontact.png";
 
 function ContactForm() {
   return (
-    <div className="bg-white relative max-w-full">
+    <div className="relative max-w-full">
       <div className="">
-        <div className="relative isolate overflow-hidden bg-white py-4 md:pt-10 lg:py-4 ">
+        <div className="relative isolate overflow-hidden py-4 md:pt-10 lg:py-4 ">
           <div className="max-w-full relative">
             <div className="mx-auto max-w-7xl lg:flex lg:flex-row lg:items-center lg:justify-between lg:gap-x-10 flex flex-col gap-5 justify-center items-center relative px-3 z-50">
               <div className="">
