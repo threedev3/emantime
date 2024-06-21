@@ -46,10 +46,10 @@ function Navbar() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-whiteColor">
+    <Disclosure as="nav" className="bg-whiteColor sticky top-0 z-40">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-full lg:max-w-7xl px-2 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-full lg:max-w-7xl px-2 py-6 sm:px-6 lg:px-8 ">
             <div className="relative flex h-16 items-center justify-between md:justify-center">
               <div className="flex flex-1 items-center justify-between">
                 <div className="flex flex-shrink-0 items-center">

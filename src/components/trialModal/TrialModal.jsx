@@ -14,7 +14,7 @@ import whiteLogo from "../../assets/img/whitelogo.png";
 
 export default function TrialModal({ openModal, setOpenModal }) {
   return (
-    <Transition appear show={openModal}>
+    <Transition appear={true} show={openModal}>
       <Dialog
         as="div"
         className="relative z-50 focus:outline-none"
@@ -42,7 +42,7 @@ export default function TrialModal({ openModal, setOpenModal }) {
             >
               <DialogPanel className="relative w-full mx-5 max-w-lg rounded-xl bg-gradient-to-r from-green-100 to-gray-200 backdrop-blur-2xl">
                 <button
-                  className="absolute top-3 right-3 text-white hover:text-gray-700"
+                  className="absolute top-3 right-3 text-white hover:text-gray-700 z-30"
                   onClick={() => setOpenModal(false)}
                 >
                   <XMarkIcon className="h-7 w-7" />
@@ -137,5 +137,60 @@ export default function TrialModal({ openModal, setOpenModal }) {
         </div>
       </Dialog>
     </Transition>
+
+    // <Transition appear show={openModal} as={Fragment}>
+    //   <Dialog as="div" className="relative z-10" onClose={setOpenModal}>
+    //     <Transition.Child
+    //       as={Fragment}
+    //       enter="ease-out duration-300"
+    //       enterFrom="opacity-0"
+    //       enterTo="opacity-100"
+    //       leave="ease-in duration-200"
+    //       leaveFrom="opacity-100"
+    //       leaveTo="opacity-0"
+    //     >
+    //       <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
+    //     </Transition.Child>
+
+    //     <div className="fixed inset-0 overflow-y-auto">
+    //       <div className="flex min-h-full items-center justify-center p-4 text-center">
+    //         <Transition.Child
+    //           as={Fragment}
+    //           enter="ease-out duration-300"
+    //           enterFrom="opacity-0 scale-95"
+    //           enterTo="opacity-100 scale-100"
+    //           leave="ease-in duration-200"
+    //           leaveFrom="opacity-100 scale-100"
+    //           leaveTo="opacity-0 scale-95"
+    //         >
+    //           <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+    //             <Dialog.Title
+    //               as="h3"
+    //               className="text-lg font-medium leading-6 text-gray-900"
+    //             >
+    //               Payment successful
+    //             </Dialog.Title>
+    //             <div className="mt-2">
+    //               <p className="text-sm text-gray-500">
+    //                 Your payment has been successfully submitted. We’ve sent you
+    //                 an email with all of the details of your order.
+    //               </p>
+    //             </div>
+
+    //             <div className="mt-4">
+    //               <button
+    //                 type="button"
+    //                 className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+    //                 onClick={() => setOpenModal(false)}
+    //               >
+    //                 Got it, thanks!
+    //               </button>
+    //             </div>
+    //           </Dialog.Panel>
+    //         </Transition.Child>
+    //       </div>
+    //     </div>
+    //   </Dialog>
+    // </Transition>
   );
 }

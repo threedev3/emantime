@@ -1,5 +1,6 @@
 import React from "react";
 import whiteLogo from "../../assets/img/whitelogo.png";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -27,10 +28,10 @@ function Footer() {
               </div>
               <div>
                 <ul className="text-white text-base">
-                  <li>Home</li>
-                  <li>Courses</li>
-                  <li>Fee</li>
-                  <li>Contact Us</li>
+                  <Link to='/'><li>Home</li></Link>
+                  <Link to='/courses'><li>Courses</li></Link>
+                  <Link to='/pricing'><li>Pricing</li></Link>
+                  <Link to='/contact'><li>Contact Us</li></Link>
                 </ul>
               </div>
             </div>

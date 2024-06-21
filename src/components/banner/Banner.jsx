@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import bannerMain from "../../assets/img/bannermain.png";
+import backImg from "../../assets/img/backimg.png";
+import mainImg from "../../assets/img/mainimg.png";
 import TrialModal from "../trialModal/TrialModal";
 
 function Banner() {
@@ -122,10 +124,10 @@ function Banner() {
               </div>
             </div>
 
-            <div className="relative max-w-3xl h-full lg:mt-8 md:max-w-full md:flex md:justify-center ">
+            <div className="relative max-w-3xl h-full lg:mt-8 md:max-w-full md:flex md:justify-center bg-[url('/src/assets/img/backimg.png')] bg-no-repeat bg-contain bg-center opacity-90 px-20">
               <img
-                className=" top-0 h-auto rounded-md "
-                src={bannerMain}
+                className=" top-0 h-auto rounded-md opacity-100 brightness-100"
+                src={mainImg}
                 alt="App screenshot"
               />
             </div>

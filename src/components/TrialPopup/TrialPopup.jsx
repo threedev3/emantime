@@ -60,7 +60,7 @@ export default function TrialPopup({ openModal, setOpenModal }) {
             >
               <DialogPanel className="relative mx-5 md:flex md:flex-row md:h-full flex flex-col max-h-[800px] w-full max-w-full rounded-xl bg-gradient-to-r from-green-100 to-gray-200 backdrop-blur-2xl overflow-auto">
                 <button
-                  className="absolute top-3 right-3 md:text-btnGradRight text-white cursor-pointer"
+                  className="absolute top-3 right-3 md:text-btnGradRight text-white cursor-pointer z-30"
                   onClick={() => setOpenModal(false)}
                 >
                   <XMarkIcon className="h-7 w-7" />

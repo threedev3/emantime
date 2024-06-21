@@ -9,6 +9,7 @@ import Contact from './pages/Contact/Contact'
 import CopyRight from './components/copyright/CopyRight'
 import TrialPopup from './components/TrialPopup/TrialPopup'
 import { useState } from 'react'
+import ScrollToTop from './components/scrollToTop/ScrollToTop'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <TrialPopup openModal={openModal} setOpenModal={setOpenModal} />
       <Navbar />
       <Routes>
