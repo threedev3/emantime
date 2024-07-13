@@ -21,7 +21,54 @@ import clsx from "clsx";
 import popupImg from "../../assets/img/popupimg.png";
 
 export default function TrialPopup({ openModal, setOpenModal }) {
-  const [enrollFor, setEnrollFor] = useState("myself");
+  // const [enrollFor, setEnrollFor] = useState("myself");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [course, setCourse] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateForm = () => {
+    let errors = {};
+
+    if (!fullName) {
+      errors.fullName = "Full Name is required";
+    }
+    if (!email) {
+      errors.email = "Email is required";
+    } else if (!validateEmail(email)) {
+      errors.email = "Invalid email address";
+    }
+    if (!phone) {
+      errors.phone = "Phone Number is required";
+    } else if (!/^\d+$/.test(phone)) {
+      errors.phone = "Phone Number must be digits only";
+    }
+    if (!course) {
+      errors.course = "Course selection is required";
+    }
+
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      // Clear the form fields
+      setFullName("");
+      setEmail("");
+      setPhone("");
+      setCourse("");
+      setErrors({});
+      setOpenModal(false);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -93,44 +140,66 @@ export default function TrialPopup({ openModal, setOpenModal }) {
                     Get Enrolled Now and find some special and amazing discounts
                   </p>
                   <div className="w-full max-w-md px-4">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                       <Input
                         type="text"
-                        required
                         placeholder="Full Name"
                         className={clsx(
                           "mt-3 block w-full rounded-lg bg-white py-1.5 px-3 text-sm/6 text-black",
                           "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
                         )}
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
                       />
+                      {errors.fullName && (
+                        <p className="text-red-600 text-sm mt-2">
+                          {errors.fullName}
+                        </p>
+                      )}
                       <Input
                         type="email"
-                        required
                         placeholder="Email Address"
                         className={clsx(
                           "mt-3 block w-full rounded-lg bg-white py-1.5 px-3 text-sm/6 text-black",
                           "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
                         )}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
+                      {errors.email && (
+                        <p className="text-red-600 text-sm mt-2">
+                          {errors.email}
+                        </p>
+                      )}
                       <Input
                         type="number"
-                        required
                         placeholder="Phone Number"
                         className={clsx(
                           "mt-3 block w-full rounded-lg bg-white py-1.5 px-3 text-sm/6 text-black",
                           "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
                         )}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                       />
+                      {errors.phone && (
+                        <p className="text-red-600 text-sm mt-2">
+                          {errors.phone}
+                        </p>
+                      )}
                       <div className="relative">
                         <Select
-                          required
                           className={clsx(
                             "mt-3 block w-full appearance-none rounded-lg bg-white py-1.5 px-3 text-sm/6 text-black",
                             "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
                             // Make the text of each option black on Windows
                             "*:text-black"
                           )}
+                          value={course}
+                          onChange={(e) => setCourse(e.target.value)}
                         >
+                          <option value="" disabled>
+                            Select Course
+                          </option>
                           <option value="tajweed-course">Tajweed Course</option>
                           <option value="Seerat-Al-Nabwi Course">
                             Seerat Al Nabwi Course
@@ -152,12 +221,16 @@ export default function TrialPopup({ openModal, setOpenModal }) {
                           className="group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-black"
                           aria-hidden="true"
                         />
+                        {errors.course && (
+                          <p className="text-red-600 text-sm mt-2">
+                            {errors.course}
+                          </p>
+                        )}
                       </div>
-                      <div className="lg:flex lg:flex-row lg:justify-between lg:items-center flex flex-col px-4 py-2 bg-white rounded-lg mt-3">
+                      {/* <div className="lg:flex lg:flex-row lg:justify-between lg:items-center flex flex-col px-4 py-2 bg-white rounded-lg mt-3">
                         <span className="text-gray-700 text-sm lg:mb-0 mb-1">
                           I Want To Enroll For?
                         </span>
-                        {/* <span className="border-r border-gray-300 h-6"></span> */}
                         <div className="flex justify-start gap-3 items-center space-x-2">
                           <label className="flex items-center space-x-1">
                             <input
@@ -182,10 +255,10 @@ export default function TrialPopup({ openModal, setOpenModal }) {
                             <span className="text-sm">My Child</span>
                           </label>
                         </div>
-                        {/* <button className="ml-auto bg-green-500 text-white py-1 px-4 rounded-md hover:bg-green-600">
-                          Start Now
-                        </button> */}
-                      </div>
+                        // {/* <button className="ml-auto bg-green-500 text-white py-1 px-4 rounded-md hover:bg-green-600">
+                        //   Start Now
+                        // </button> */}
+                      {/* </div> */}
                       <div className="mt-4 flex justify-center">
                         <Button
                           type="submit"

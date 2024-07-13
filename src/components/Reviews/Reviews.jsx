@@ -98,7 +98,7 @@ function Reviews() {
             </p>
           </div>
           </div>
-          <div className="max-w-full px-5">
+          <div className="max-w-full ">
             <div className="slider-container">
               <Slider {...settings}>
                 {reviews.map((item, index) => (

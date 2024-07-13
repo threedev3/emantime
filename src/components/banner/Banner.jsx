@@ -75,13 +75,13 @@ function Banner() {
                   </ul>
                 </div>
 
-                {/* <div className="mt-4" onClick={() => setOpenModal(true)}>
+                <div className="mt-4" onClick={() => setOpenModal(true)}>
                   <button className="p-2 sm:px-6 px-4 bg-bannerText text-black font-medium rounded-full sm:text-lg text-base mt-3">
                     Book Free Trial Class
                   </button>
-                </div> */}
+                </div>
 
-                <div className="flex items-center bg-white sm:w-fit w-full mt-4 rounded-lg shadow-md space-x-2">
+                {/* <div className="flex items-center bg-white sm:w-fit w-full mt-4 rounded-lg shadow-md space-x-2">
                   <div className="flex items-center sm:py-0 py-4 sm:px-4 px-2">
                     <div>
                       <span className="text-gray-700 mr-2 sm:text-base text-sm">
@@ -120,7 +120,7 @@ function Banner() {
                 </div>
                 <div className="sm:hidden mt-4 p-4 bg-pricingActive rounded-md flex justify-center text-white text-lg">
                   <button className="">Start Now</button>
-                </div>
+                </div> */}
               </div>
             </div>
 
