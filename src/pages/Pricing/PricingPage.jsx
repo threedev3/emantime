@@ -1,9 +1,9 @@
-import React from 'react'
-import Pricing from '../../components/pricing/Pricing'
-import ContactForm from '../../components/ContactForm/ContactForm'
-import LearnQuran from '../../components/LearnQuran/LearnQuran'
-import SubBanner from '../../components/banner/SubBanner'
-import PricingTop from '../../components/pricing/PricingTop'
+import React from "react";
+import Pricing from "../../components/pricing/Pricing";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import LearnQuran from "../../components/LearnQuran/LearnQuran";
+import SubBanner from "../../components/banner/SubBanner";
+import PricingTop from "../../components/pricing/PricingTop";
 
 function PricingPage() {
   return (
@@ -11,11 +11,10 @@ function PricingPage() {
       <SubBanner course="Pricing" />
       <PricingTop title="Our Economical Pricing" />
       <Pricing />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <LearnQuran />
-
     </div>
-  )
+  );
 }
 
-export default PricingPage
+export default PricingPage;

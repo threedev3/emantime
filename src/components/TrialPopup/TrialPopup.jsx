@@ -19,56 +19,26 @@ import {
 import { XMarkIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import popupImg from "../../assets/img/popupimg.png";
+import useFormHandler from "../../hooks/useFormHandler";
 
 export default function TrialPopup({ openModal, setOpenModal }) {
-  // const [enrollFor, setEnrollFor] = useState("myself");
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [course, setCourse] = useState("");
-  const [errors, setErrors] = useState({});
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const onSuccess = () => {
+    setOpenModal(false);
   };
 
-  const validateForm = () => {
-    let errors = {};
-
-    if (!fullName) {
-      errors.fullName = "Full Name is required";
-    }
-    if (!email) {
-      errors.email = "Email is required";
-    } else if (!validateEmail(email)) {
-      errors.email = "Invalid email address";
-    }
-    if (!phone) {
-      errors.phone = "Phone Number is required";
-    } else if (!/^\d+$/.test(phone)) {
-      errors.phone = "Phone Number must be digits only";
-    }
-    if (!course) {
-      errors.course = "Course selection is required";
-    }
-
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      // Clear the form fields
-      setFullName("");
-      setEmail("");
-      setPhone("");
-      setCourse("");
-      setErrors({});
-      setOpenModal(false);
-    }
-  };
+  const {
+    fullName,
+    setFullName,
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    course,
+    setCourse,
+    errors,
+    loading,
+    handleSubmit,
+  } = useFormHandler();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -140,7 +110,7 @@ export default function TrialPopup({ openModal, setOpenModal }) {
                     Get Enrolled Now and find some special and amazing discounts
                   </p>
                   <div className="w-full max-w-md px-4">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={(e) => handleSubmit(e, onSuccess)}>
                       <Input
                         type="text"
                         placeholder="Full Name"
@@ -262,10 +232,31 @@ export default function TrialPopup({ openModal, setOpenModal }) {
                       <div className="mt-4 flex justify-center">
                         <Button
                           type="submit"
-                          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-btnGradRight to-btnGradLeft py-2.5 px-4 text-base font-medium text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mx-auto"
+                          className="inline-flex items-center justify-center gap-2 w-72 rounded-full bg-gradient-to-r from-btnGradRight to-btnGradLeft py-2.5 px-4 sm:text-base text-sm font-medium text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white text-center"
                           onClick={close}
+                          disabled={loading}
                         >
-                          Claim 7 Days Free Trial
+                          {loading ? (
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="animate-spin h-8 w-8"
+                              fill="white"
+                            >
+                              <path
+                                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+                                opacity=".25"
+                              />
+                              <path
+                                d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"
+                                className="spinner_ajPY"
+                              />
+                            </svg>
+                          ) : (
+                            "Claim Your 7 days free trial"
+                          )}
                         </Button>
                       </div>
                     </form>

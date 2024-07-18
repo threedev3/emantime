@@ -16,10 +16,10 @@ function ContactDetails() {
             </div>
             <div className="max-w-xl ">
               <div className="max-w-xl lg:flex-auto lg:flex lg:flex-col lg:gap-2  lg:text-left lg:px-8 sm:px-6 px-2">
-                <h2 className="text-4xl font-bold sm:text-4xl lg:text-4xl text-contactText lg:leading-tight">
+                <h2 className="text-2xl font-bold sm:text-2xl lg:text-3xl text-contactText lg:leading-tight">
                   WE 'RE HERE
                 </h2>
-                <p className="mt-6 sm:text-2xl text-xl loading-3 text-contactText font-medium">
+                <p className="mt-6 lg:text-xl sm:text-lg text-base loading-3 text-contactText font-medium">
                   To help you start your Quran journey!
                 </p>
 
@@ -37,7 +37,9 @@ function ContactDetails() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-black">+44 20 3289 4228</p>
+                        <p className="text-black lg:text-base text-sm">
+                          +44 20 3289 4228
+                        </p>
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
@@ -52,7 +54,9 @@ function ContactDetails() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-black">+1 551-253-3039</p>
+                        <p className="text-black lg:text-base text-sm">
+                          +1 551-253-3039
+                        </p>
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
@@ -73,7 +77,9 @@ function ContactDetails() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-black">support@emantime.com</p>
+                        <p className="text-black lg:text-base text-sm">
+                          support@emantime.com
+                        </p>
                       </div>
                     </li>
                     <li className="flex items-center gap-3">
@@ -88,7 +94,7 @@ function ContactDetails() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-black">
+                        <p className="text-black lg:text-base text-sm">
                           20-22 , Wenlock Road , N1 7GU , London, UK
                         </p>
                       </div>

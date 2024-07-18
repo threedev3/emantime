@@ -6,7 +6,7 @@ function ReviewCard({ para, dp, name, country }) {
       <div className="flex flex-col gap-6">
         <div>
           <svg
-            className="sm:w-20 sm:h-20 w-16 h-16 text-quoteColor"
+            className="sm:w-16 sm:h-16 w-12 h-12 text-quoteColor"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -16,18 +16,22 @@ function ReviewCard({ para, dp, name, country }) {
           </svg>
         </div>
         <div className="h-40 w-full">
-          <p className="text-lg lg:line-clamp-6 line-clamp-6">{para}</p>
+          <p className="text-base lg:line-clamp-6 line-clamp-6">{para}</p>
         </div>
         <div className="flex flex-row justify-start items-center gap-4">
           <div className="border-4 border-white rounded-full shadow-xl">
-            <img src={dp} alt="" className="rounded-full sm:h-20 sm:w-20 h-16 w-16" />
+            <img
+              src={dp}
+              alt=""
+              className="rounded-full sm:h-20 sm:w-20 h-16 w-16"
+            />
           </div>
           <div className="flex flex-col gap-1">
             <div>
-              <p className="text-xl font-bold">{name}</p>
+              <p className="text-base font-bold">{name}</p>
             </div>
             <div>
-              <p className="text-sm font-thin text-gray-400">{country}</p>
+              <p className="text-xs font-thin text-gray-400">{country}</p>
             </div>
           </div>
         </div>

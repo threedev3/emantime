@@ -13,7 +13,7 @@ function Footer() {
                 <img src={whiteLogo} alt="" />
               </div>
               <div>
-                <p className="text-white text-base">
+                <p className="text-white lg:text-base text-sm">
                   We are available 24/7, and the sign-up process is extremely
                   simple! For all new students, we provide 3 days Free trial of
                   Quran Classes.
@@ -22,22 +22,30 @@ function Footer() {
             </div>
             <div className="flex gap-3 flex-col ">
               <div className="">
-                <h3 className="text-white text-2xl font-semibold">
+                <h3 className="text-white text-xl font-semibold">
                   Quick Links
                 </h3>
               </div>
               <div>
-                <ul className="text-white text-base">
-                  <Link to='/'><li>Home</li></Link>
-                  <Link to='/courses'><li>Courses</li></Link>
-                  <Link to='/pricing'><li>Pricing</li></Link>
-                  <Link to='/contact'><li>Contact Us</li></Link>
+                <ul className="text-white lg:text-base text-sm flex flex-col gap-2">
+                  <Link to="/">
+                    <li>Home</li>
+                  </Link>
+                  <Link to="/courses">
+                    <li>Courses</li>
+                  </Link>
+                  <Link to="/pricing">
+                    <li>Pricing</li>
+                  </Link>
+                  <Link to="/contact">
+                    <li>Contact Us</li>
+                  </Link>
                 </ul>
               </div>
             </div>
             <div className="flex gap-3 flex-col ">
               <div className="">
-                <h3 className="text-white text-2xl font-semibold">
+                <h3 className="text-white text-xl font-semibold">
                   Official Info
                 </h3>
               </div>
@@ -55,7 +63,9 @@ function Footer() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-base">+44 20 3289 4228</p>
+                      <p className="text-white lg:text-base text-sm">
+                        +44 20 3289 4228
+                      </p>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
@@ -70,7 +80,9 @@ function Footer() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-base">+1 551-253-3039</p>
+                      <p className="text-white lg:text-base text-sm">
+                        +1 551-253-3039
+                      </p>
                     </div>
                   </li>
                   <li className="flex items-center gap-3">
@@ -79,19 +91,19 @@ function Footer() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="2"
+                        strokeWidth="2"
                         stroke="white"
                         className="h-4 e-font-icon-svg e-fas-phone-alt"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
                         />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-base">
+                      <p className="text-white lg:text-base text-sm">
                         support@emantime.com
                       </p>
                     </div>
@@ -108,7 +120,7 @@ function Footer() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-white text-base">
+                      <p className="text-white lg:text-base text-sm">
                         20-22 , Wenlock Road , N1 7GU , London, UK
                       </p>
                     </div>

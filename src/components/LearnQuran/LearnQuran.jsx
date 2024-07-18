@@ -49,7 +49,7 @@ function LearnQuran() {
             <div className="mx-auto max-w-7xl lg:flex lg:flex-row lg:items-center lg:justify-between lg:gap-x-10 flex flex-col gap-5 justify-center items-center relative px-3 z-50">
               <div className="">
                 <div className="lg:max-w-2xl max-w-full lg:flex-auto  lg:text-left lg:px-8 sm:px-6 px-2">
-                  <h2 className="leading-tight tracking-tight text-3xl font-bold bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:text-4xl ">
+                  <h2 className="leading-tight tracking-tight text-2xl font-bold bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:text-3xl sm:text-2xl ">
                     Learn Quran With Expert Male/Female Quran Tutors
                   </h2>
                   <p className="mt-6 loading-4 sm:text-base text-sm lg-leading-8 text-black">
@@ -71,12 +71,14 @@ function LearnQuran() {
                   </p>
                 </div>
               </div>
-
-             
             </div>
 
             <div className="lg:max-w-2xl lg:absolute lg:top-0 lg:right-0 relative right-0  z-10 lg:float-none float-right">
-              <img src={learnImg} alt="" className="lg:w-full lg:h-[500px] md:w-[500px] md:h-[500px] w-[300px] h-[300px] " />
+              <img
+                src={learnImg}
+                alt=""
+                className="lg:w-full lg:h-[500px] md:w-[500px] md:h-[500px] w-[300px] h-[300px] "
+              />
             </div>
           </div>
         </div>

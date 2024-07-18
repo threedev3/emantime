@@ -13,7 +13,7 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../../assets/img/logo.png";
 import { Link, useLocation } from "react-router-dom";
-import TrialModal from '../trialModal/TrialModal'
+import TrialModal from "../trialModal/TrialModal";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -68,7 +68,7 @@ function Navbar() {
                           activeItem === item.href
                             ? "bg-activeColor text-white"
                             : "text-navText hover:bg-activeColor hover:text-white",
-                          "rounded-md px-3 py-2 text-lg font-medium"
+                          "rounded-md px-3 py-2 text-base font-medium"
                         )}
                         aria-current={
                           activeItem === item.href ? "page" : undefined
@@ -80,7 +80,7 @@ function Navbar() {
                   </div>
                 </div>
 
-                <div className="flex flex-col hidden lg:block">
+                <div className="hidden lg:block">
                   <div className="flex flex-row items-center gap-2">
                     <div>
                       <svg
@@ -93,7 +93,7 @@ function Navbar() {
                       </svg>
                     </div>
                     <div>
-                      <p>+44 20 3289 4228</p>
+                      <p className="text-sm">+44 20 3289 4228</p>
                     </div>
                   </div>
 
@@ -109,13 +109,16 @@ function Navbar() {
                       </svg>
                     </div>
                     <div>
-                      <p>+1 551-253-3039</p>
+                      <p className="text-sm">+1 551-253-3039</p>
                     </div>
                   </div>
                 </div>
 
-                <div >
-                  <button onClick={() => setOpenModal(!openModal)} className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full hidden md:block" >
+                <div>
+                  <button
+                    onClick={() => setOpenModal(!openModal)}
+                    className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full hidden md:block"
+                  >
                     Create Your Free Trial
                   </button>
                 </div>
@@ -153,13 +156,19 @@ function Navbar() {
               <div className="fixed inset-y-0 left-0 w-full sm:w-96 bg-white p-4 z-50 shadow-lg">
                 <div className="flex flex-row justify-between items-center">
                   <div className="flex flex-shrink-0 items-center">
-                    <Link to="/" onClick={() => setIsMenuOpen(false)}><img className="h-32 w-auto" src={Logo} alt="Eman Time" /></Link>
+                    <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                      <img className="h-32 w-auto" src={Logo} alt="Eman Time" />
+                    </Link>
                   </div>
-                  <XMarkIcon
-                    className="block h-6 w-6"
-                    aria-hidden="true"
-                    onClick={() => handleOutsideClick()}
-                  />
+                  <button
+                    className="relative inline-flex items-center justify-center rounded-md p-2 bg-btnGradRight text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  >
+                    <span className="absolute -inset-0.5" />
+                    <span className="sr-only">Open main menu</span>
+
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  </button>
                 </div>
                 <div className="space-y-1 px-2 pb-3 pt-8">
                   {navigation.map((item) => (
@@ -216,18 +225,20 @@ function Navbar() {
                 </div>
 
                 <div>
-                  <button  onClick={() => setOpenModal(true)} className="p-2 px-4 mt-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full">
+                  <button
+                    onClick={() => setOpenModal(true)}
+                    className="p-2 px-4 mt-6 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full"
+                  >
                     Create Your Free Trial
                   </button>
                 </div>
               </div>
             </div>
           </Transition>
-        {
-          openModal ? <TrialModal openModal={openModal} setOpenModal={setOpenModal} /> : null
-        }  
+          {openModal ? (
+            <TrialModal openModal={openModal} setOpenModal={setOpenModal} />
+          ) : null}
         </>
-        
       )}
     </Disclosure>
   );

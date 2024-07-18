@@ -98,17 +98,17 @@ function CarouselComp() {
           <div className="mx-auto max-w-7xl md:flex md:flex-row md:items-center md:justify-between md:gap-x-10 flex flex-col gap-5 justify-center">
             <div className="">
               <div className="md:max-w-md max-w-full lg:flex-auto lg:py-32  lg:text-left lg:px-8 px-2">
-                <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl lg:text-3xl xl:text-4xl">
+                <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl md:text-xl lg:text-2xl xl:text-3xl">
                   Start your Quran Journey right now and get closer to Allah
                   Almighty!
                 </h2>
-                <p className="mt-6 xl:text-lg text-base leading-6 text-white font-normal">
+                <p className="mt-6 sm:text-base text-sm leading-6 text-white font-normal">
                   Register now for the free trial and let us help you learn the
                   quran with proper tajweed just like the natives!
                 </p>
 
                 <div className="mt-4" onClick={() => setOpenModal(true)}>
-                  <button className="xl:p-2 xl:px-6 lg:p-2 lg:px-4 p-2 px-3 bg-bannerText text-black font-medium rounded-full xl:text-xl lg:text-lg text-base">
+                  <button className="xl:p-2 xl:px-6 lg:p-2 lg:px-4 p-2 px-3 bg-bannerText text-black font-medium rounded-full sm:text-base text-sm">
                     Book Free Trial Class
                   </button>
                 </div>

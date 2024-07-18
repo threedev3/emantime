@@ -11,55 +11,26 @@ import { Description, Field, Input, Select } from "@headlessui/react";
 import { XMarkIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import whiteLogo from "../../assets/img/whitelogo.png";
+import useFormHandler from "../../hooks/useFormHandler";
 
 export default function TrialModal({ openModal, setOpenModal }) {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [course, setCourse] = useState("");
-  const [errors, setErrors] = useState({});
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const onSuccess = () => {
+    setOpenModal(false);
   };
 
-  const validateForm = () => {
-    let errors = {};
-
-    if (!fullName) {
-      errors.fullName = "Full Name is required";
-    }
-    if (!email) {
-      errors.email = "Email is required";
-    } else if (!validateEmail(email)) {
-      errors.email = "Invalid email address";
-    }
-    if (!phone) {
-      errors.phone = "Phone Number is required";
-    } else if (!/^\d+$/.test(phone)) {
-      errors.phone = "Phone Number must be digits only";
-    }
-    if (!course) {
-      errors.course = "Course selection is required";
-    }
-
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      // Clear the form fields
-      setFullName("");
-      setEmail("");
-      setPhone("");
-      setCourse("");
-      setErrors({});
-      setOpenModal(false);
-    }
-  };
+  const {
+    fullName,
+    setFullName,
+    phone,
+    setPhone,
+    email,
+    setEmail,
+    course,
+    setCourse,
+    errors,
+    handleSubmit,
+    loading,
+  } = useFormHandler();
 
   return (
     <Transition appear={true} show={openModal}>
@@ -98,7 +69,7 @@ export default function TrialModal({ openModal, setOpenModal }) {
                 <div className="flex justify-center items-center bg-gradient-to-r from-btnGradRight to-btnGradLeft rounded-t-xl p-6">
                   <img src={whiteLogo} alt="" />
                 </div>
-                <div className="p-8 ">
+                <div className="p-8 max-h-[450px] overflow-y-auto no-scrollbar">
                   <DialogTitle
                     as="h3"
                     className="sm:text-3xl text-2xl font-semibold  bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text text-center"
@@ -109,7 +80,7 @@ export default function TrialModal({ openModal, setOpenModal }) {
                     Get Enrolled Now and find some special and amazing discounts
                   </p>
                   <div className="w-full max-w-sm mx-auto px-4">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={(e) => handleSubmit(e, onSuccess)}>
                       <Input
                         type="text"
                         placeholder="Full Name"
@@ -169,18 +140,20 @@ export default function TrialModal({ openModal, setOpenModal }) {
                           <option value="" disabled>
                             Select Course
                           </option>
-                          <option value="active">Tajweed Course</option>
-                          <option value="paused">Seerat Al Nabwi Course</option>
-                          <option value="delayed">
+                          <option value="tajweed course">Tajweed Course</option>
+                          <option value="seerat-al-nabawi course">
+                            Seerat Al Nabwi Course
+                          </option>
+                          <option value="one-to-one counselling sessions">
                             One-To-One Councelling Session
                           </option>
-                          <option value="canceled">
+                          <option value="one-to-one quren recitation course">
                             One-To-One Quran Recitation Course
                           </option>
-                          <option value="canceled">
+                          <option value="quran memorization course">
                             Quran Memorization Course
                           </option>
-                          <option value="canceled">
+                          <option value="islamic studies course">
                             Islamic Studies Classes
                           </option>
                         </Select>
@@ -197,10 +170,30 @@ export default function TrialModal({ openModal, setOpenModal }) {
                       <div className="mt-6 flex justify-center">
                         <Button
                           type="submit"
-                          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-btnGradRight to-btnGradLeft py-2.5 px-4 text-base font-medium text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mx-auto"
-                          onClick={close}
+                          className="inline-flex items-center justify-center gap-2 w-32 rounded-full bg-gradient-to-r from-btnGradRight to-btnGradLeft py-2.5 px-4 text-base font-medium text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white "
+                          disabled={loading}
                         >
-                          Get Enrolled
+                          {loading ? (
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="animate-spin h-8 w-8"
+                              fill="white"
+                            >
+                              <path
+                                d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm0,19a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"
+                                opacity=".25"
+                              />
+                              <path
+                                d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"
+                                className="spinner_ajPY"
+                              />
+                            </svg>
+                          ) : (
+                            "Get Enrolled"
+                          )}
                         </Button>
                       </div>
                     </form>
@@ -212,60 +205,5 @@ export default function TrialModal({ openModal, setOpenModal }) {
         </div>
       </Dialog>
     </Transition>
-
-    // <Transition appear show={openModal} as={Fragment}>
-    //   <Dialog as="div" className="relative z-10" onClose={setOpenModal}>
-    //     <Transition.Child
-    //       as={Fragment}
-    //       enter="ease-out duration-300"
-    //       enterFrom="opacity-0"
-    //       enterTo="opacity-100"
-    //       leave="ease-in duration-200"
-    //       leaveFrom="opacity-100"
-    //       leaveTo="opacity-0"
-    //     >
-    //       <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
-    //     </Transition.Child>
-
-    //     <div className="fixed inset-0 overflow-y-auto">
-    //       <div className="flex min-h-full items-center justify-center p-4 text-center">
-    //         <Transition.Child
-    //           as={Fragment}
-    //           enter="ease-out duration-300"
-    //           enterFrom="opacity-0 scale-95"
-    //           enterTo="opacity-100 scale-100"
-    //           leave="ease-in duration-200"
-    //           leaveFrom="opacity-100 scale-100"
-    //           leaveTo="opacity-0 scale-95"
-    //         >
-    //           <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-    //             <Dialog.Title
-    //               as="h3"
-    //               className="text-lg font-medium leading-6 text-gray-900"
-    //             >
-    //               Payment successful
-    //             </Dialog.Title>
-    //             <div className="mt-2">
-    //               <p className="text-sm text-gray-500">
-    //                 Your payment has been successfully submitted. We’ve sent you
-    //                 an email with all of the details of your order.
-    //               </p>
-    //             </div>
-
-    //             <div className="mt-4">
-    //               <button
-    //                 type="button"
-    //                 className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-    //                 onClick={() => setOpenModal(false)}
-    //               >
-    //                 Got it, thanks!
-    //               </button>
-    //             </div>
-    //           </Dialog.Panel>
-    //         </Transition.Child>
-    //       </div>
-    //     </div>
-    //   </Dialog>
-    // </Transition>
   );
 }

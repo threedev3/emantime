@@ -6,6 +6,29 @@ import Feature4 from "../../assets/img/feature4.png";
 import Feature5 from "../../assets/img/feature5.png";
 
 function Features() {
+  const featuresData = [
+    {
+      src: Feature1,
+      text: "Online Panel",
+    },
+    {
+      src: Feature2,
+      text: "Multilingual Tutors",
+    },
+    {
+      src: Feature3,
+      text: "One to One Interactive Session",
+    },
+    {
+      src: Feature4,
+      text: "Evaluation Reports",
+    },
+    {
+      src: Feature5,
+      text: "Alternative Teachers",
+    },
+  ];
+
   return (
     <div className="max-w-full relative bg-[url('/src/assets/img/choosebg.png')]  bg-no-repeat bg-cover bg-center py-12 flex flex-col justify-center items-center lg:py-16">
       <div className="bg-[url('/src/assets/img/choosevector.png')] bg-no-repeat absolute top-0 right-0  w-full h-full lg:w-1/3 md:w-1/2 sm:w-full  z-10"></div>
@@ -17,42 +40,23 @@ function Features() {
             </h2>
           </div>
           <div>
-            <p className="mt-4 text-center sm:text-lg text-base font-normal">
+            <p className="mt-4 text-center sm:text-base text-sm font-normal">
               Register now for the free trial and let us help you learn the
               quran with proper tajweed just like the natives!
             </p>
           </div>
-          <div className="flex flex-wrap justify-center lg:flex lg:flex-row lg:justify-center lg:item-center mt-8 gap-10">
-            <div className="flex flex-col items-center justify-center">
-              <img src={Feature1} alt="" className="mb-4 h-24" />
-              <p className="text-featureText font-semibold text-xl text-center">
-                Online Panel
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <img src={Feature2} alt="" className="mb-4 h-24" />
-              <p className="text-featureText font-semibold text-xl text-center">
-                Multilingual Tutors
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <img src={Feature3} alt="" className="mb-4 h-24" />
-              <p className="text-featureText font-semibold text-xl text-center">
-                One to One <span className="block">Interactive Session</span>
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <img src={Feature4} alt="" className="mb-4 h-24" />
-              <p className="text-featureText font-semibold text-xl text-center">
-                Evaluation Reports
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <img src={Feature5} alt="" className="mb-4 h-24" />
-              <p className="text-featureText font-semibold text-xl text-center">
-                Alternative Teachers
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-5 lg:justify-center lg:item-center mt-8 gap-10">
+            {featuresData.map((feature, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center"
+              >
+                <img src={feature.src} alt="" className="mb-4 h-24" />
+                <p className="text-featureText font-semibold text-lg text-center">
+                  {feature.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

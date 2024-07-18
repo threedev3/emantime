@@ -74,29 +74,25 @@ function Reviews() {
     ],
   };
 
-
-
   return (
-    
-
     <div className="max-w-full relative bg-[url('/src/assets/img/choosebg.png')]  bg-no-repeat bg-cover bg-center py-6 flex flex-col justify-center items-center lg:py-16">
       <div className="bg-[url('/src/assets/img/choosevector.png')] bg-no-repeat absolute top-0 right-0  w-full h-full lg:w-1/3 md:w-1/2 sm:w-full  z-10"></div>
       <div className="max-w-full z-30">
         <div className="max-w-7xl p-5  flex flex-col justify-center items-center gap-4">
           <div className="max-w-full flex flex-col justify-center items-center gap-4">
-          <div className="">
-            <h2 className="text-center sm:text-4xl text-3xl font-bold bg-gradient-to-r from-btnGradRight to-btnGradLeft inline-block text-transparent bg-clip-text">
-              What Students At EmanTime Say About Our Service
-            </h2>
-          </div>
-          <div>
-            <p className="mt-4 text-center sm:text-lg text-base font-normal">
-              Your comments and thoughts are greatly appreciated. We can't thank
-              you enough fortaking the time to provide feedback on how we can
-              better serve you. We appreciate you writing in to tell us what you
-              think
-            </p>
-          </div>
+            <div className="">
+              <h2 className="text-center lg:text-3xl sm:text-2xl text-xl font-bold bg-gradient-to-r from-btnGradRight to-btnGradLeft inline-block text-transparent bg-clip-text">
+                What Students At EmanTime Say About Our Service
+              </h2>
+            </div>
+            <div>
+              <p className="mt-4 text-center sm:text-base text-sm font-normal">
+                Your comments and thoughts are greatly appreciated. We can't
+                thank you enough fortaking the time to provide feedback on how
+                we can better serve you. We appreciate you writing in to tell us
+                what you think
+              </p>
+            </div>
           </div>
           <div className="max-w-full ">
             <div className="slider-container">

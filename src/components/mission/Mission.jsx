@@ -12,13 +12,13 @@ function Mission() {
           <div className="mx-auto flex flex-col justify-center items-center gap-10 md:flex md:flex-row md:items-center md:justify-between md:gap-x-10 sm:flex sm:flex-col sm:justify-center lg:max-w-7xl">
             <div className="">
               <div className="lg:max-w-2xl max-w-xl lg:flex-auto lg:flex lg:flex-col lg:gap-2 lg:py-8 lg:text-left lg:px-8 sm:px-6 px-2">
-                <h2 className="text-4xl font-semibold text-slate-700 sm:text-4xl lg:text-3xl tracking-wide">
+                <h2 className="text-2xl font-semibold text-slate-700 sm:text-3xl lg:text-2xl tracking-wide">
                   Our Mission
                 </h2>
-                <h2 className="text-4xl font-bold sm:text-4xl md:text-4xl lg:text-5xl bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:leading-tight">
+                <h2 className="text-2xl font-bold sm:text-3xl md:text-3xl lg:text-4xl bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:leading-tight">
                   Best Islamic Platform For Learning
                 </h2>
-                <p className="mt-6 sm:text-lg text-base loading-3 text-black font-normal">
+                <p className="mt-6 sm:text-base text-sm loading-3 text-black font-normal">
                   At EmanTime, our mission is to provide a seamless and
                   interactive learning experience for adults and children from
                   all over the world. Our goal is to make Quranic learning
@@ -28,7 +28,7 @@ function Mission() {
                 </p>
 
                 <div className="mt-4" onClick={() => setOpenModal(true)}>
-                  <button className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full">
+                  <button className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full sm:text-base text-sm">
                     Get Enrolled
                   </button>
                 </div>
@@ -54,10 +54,10 @@ function Mission() {
             </div>
             <div className="max-w-xl ">
               <div className="max-w-xl lg:flex-auto lg:flex lg:flex-col lg:gap-2  lg:text-left lg:px-8 sm:px-6 px-2">
-                <h2 className="text-4xl font-bold sm:text-4xl lg:text-5xl bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:leading-tight">
+                <h2 className="text-2xl font-bold sm:text-3xl md:text-3xl lg:text-4xl bg-gradient-to-r from-btnGradRight to-btnGradLeft text-transparent bg-clip-text lg:leading-tight">
                   Learn Quran Online With The Best Tutors!
                 </h2>
-                <p className="mt-6 sm:text-lg text-base loading-3 text-black font-normal">
+                <p className="mt-6 sm:text-base text-sm loading-3 text-black font-normal">
                   Learn Quran online with the correct method of Tajweed
                   recitation. Our professional tutors with several years of
                   experience are in a prime position forhelping you or your
@@ -70,7 +70,7 @@ function Mission() {
                 </p>
 
                 <div className="mt-4" onClick={() => setOpenModal(true)}>
-                  <button className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full">
+                  <button className="p-2 px-4 bg-gradient-to-r from-btnGradRight to-btnGradLeft text-white font-medium rounded-full sm:text-base text-sm">
                     Get Enrolled
                   </button>
                 </div>
@@ -79,9 +79,9 @@ function Mission() {
           </div>
         </div>
       </div>
-      {
-          openModal ? <TrialModal openModal={openModal} setOpenModal={setOpenModal} /> : null
-        }
+      {openModal ? (
+        <TrialModal openModal={openModal} setOpenModal={setOpenModal} />
+      ) : null}
     </div>
   );
 }
