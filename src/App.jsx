@@ -18,7 +18,7 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   const [isRestricted, setIsRestricted] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Loading state
-  const restrictedCountries = ["CN", "RU", "PK"]; // Add country codes you want to restrict
+  const restrictedCountries = ["CN", "RU"]; // Add country codes you want to restrict
 
   useEffect(() => {
     const checkLocation = async () => {
